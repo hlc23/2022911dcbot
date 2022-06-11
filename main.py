@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 from dotenv import load_dotenv
+from keep_alive import keep_alive
 import json
 
 def load_config():
@@ -45,5 +46,8 @@ async def reload(ctx:discord.ApplicationContext):
 for cog in cogs:
     bot.load_extension(f"cogs.{cog}")
 
-
-bot.run(os.getenv('TOKEN'))
+keep_alive()
+try:
+    bot.run(os.getenv('TOKEN'))
+except:
+    os.system("kill 1")
