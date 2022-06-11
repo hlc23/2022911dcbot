@@ -1,5 +1,7 @@
 {
     "cogs":[
-        "command.basic"
+        "command.basic",
+        "event.member",
+        "command.role"
     ]
 }
