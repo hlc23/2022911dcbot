@@ -1,8 +1,8 @@
 import discord
-import os # default module
+import os
 from dotenv import load_dotenv
 
-load_dotenv() # load all the variables from the env file
+load_dotenv()
 bot = discord.Bot(debug_guilds=[985045688377282581])
 
 @bot.event
@@ -15,4 +15,4 @@ async def on_ready():
 async def hello(ctx:discord.ApplicationContext):
     await ctx.respond(f"Hi {ctx.author.mention}")
 
-bot.run(os.getenv('TOKEN')) # run the bot with the token
+bot.run(os.getenv('TOKEN'))
