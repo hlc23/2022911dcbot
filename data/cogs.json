@@ -2,6 +2,7 @@
     "cogs":[
         "command.basic",
         "event.member",
-        "command.role"
+        "command.role",
+        "event.dvc"
     ]
 }
