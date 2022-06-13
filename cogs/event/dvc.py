@@ -8,6 +8,8 @@ class Dvc(Cog_base):
         dvc_list = []
         for game in self.game.keys():
             dvc_list.append(self.game[game]["voice"])
+        for c in self.config["voice_channel"]:
+            dvc_list.append(c)
         if after.channel is not None:
             if after.channel.id in dvc_list:
                 guild = self.bot.get_guild(self.config["guild_id"])
