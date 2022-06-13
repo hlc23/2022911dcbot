@@ -27,7 +27,7 @@ class ButtonRoleCog(Cog_base):
         #     view.add_item(RoleButton(role))
 
         embed = discord.Embed()
-        embed.title = "點選按鈕獲得身分組\n(未完成)"
+        embed.title = "點選按鈕獲得身分組"
         description = ""
         for game in self.game.keys():
             emoji = self.bot.get_emoji(self.game[game]["emoji"])
@@ -35,11 +35,10 @@ class ButtonRoleCog(Cog_base):
             role = ctx.guild.get_role(self.game[game]["role"])
             view.add_item(RoleButton(role, emoji))
         embed.description = description
+        embed.set_footer(text=f'請忽略"此交互失敗"')
         channel = self.bot.get_channel(self.config["get_role_channel"])
         new_message = await channel.fetch_message(self.config["get_role_message"])
         await new_message.edit(content=None,embed=embed, view=view)
-
-   
 
 
 def setup(bot):
