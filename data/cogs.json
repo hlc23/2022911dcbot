@@ -3,6 +3,7 @@
         "command.basic",
         "event.member",
         "command.role",
-        "event.dvc"
+        "event.dvc",
+        "event.role"
     ]
 }

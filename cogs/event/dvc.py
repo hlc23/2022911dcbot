@@ -1,4 +1,3 @@
-import types
 import discord
 from core.cog_classes import Cog_base
 

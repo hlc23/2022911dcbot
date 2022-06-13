@@ -32,8 +32,6 @@ class ButtonRoleCog(Cog_base):
         except commands.MissingAnyRole:
             await ctx.respond("你沒有權限使用此指令")
 
-   
-
 
 def setup(bot):
     bot.add_cog(ButtonRoleCog(bot))
