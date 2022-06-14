@@ -133,3 +133,5 @@ test.py
 .replit
 pycord
 pyproject.toml
+discord
+poetry.lock
