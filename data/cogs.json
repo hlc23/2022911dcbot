@@ -4,6 +4,7 @@
         "event.member",
         "command.role",
         "event.dvc",
-        "event.role"
+        "event.role",
+        "command.checker"
     ]
 }
