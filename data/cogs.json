@@ -5,6 +5,7 @@
         "command.role",
         "event.dvc",
         "event.role",
-        "command.checker"
+        "command.checker",
+        "command.game"
     ]
 }

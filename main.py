@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 import os
-# from dotenv import load_dotenv
-from keep_alive import keep_alive
+from dotenv import load_dotenv
+# from keep_alive import keep_alive
 import json
 
 def load_config():
@@ -14,7 +14,7 @@ def get_cogs():
         global cogs
         cogs = json.load(cogs_file)["cogs"]
 
-# load_dotenv()
+load_dotenv()
 load_config()
 get_cogs()
 bot = discord.Bot(debug_guilds=[985045688377282581], intents=discord.Intents.all())
@@ -46,7 +46,7 @@ async def reload(ctx:discord.ApplicationContext):
 for cog in cogs:
     bot.load_extension(f"cogs.{cog}")
 
-keep_alive()
+# keep_alive()
 try:
     bot.run(os.getenv('TOKEN'))
 except:
