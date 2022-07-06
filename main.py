@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from keep_alive import keep_alive
 import json
 
@@ -14,7 +14,7 @@ def get_cogs():
         global cogs
         cogs = json.load(cogs_file)["cogs"]
 
-# load_dotenv()
+load_dotenv()
 load_config()
 get_cogs()
 bot = discord.Bot(debug_guilds=[985045688377282581], intents=discord.Intents.all())

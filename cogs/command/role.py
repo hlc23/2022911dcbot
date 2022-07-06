@@ -20,8 +20,15 @@ class ButtonRoleCog(Cog_base):
             embed.title = "點選按鈕獲得身分組"
             description = ""
             for game in self.game.keys():
-                emoji = self.bot.get_emoji(self.game[game]["emoji"])
-                description += f"{game}{emoji}\n"
+                self.game[game]:dict
+                if self.game[game].get("emoji") is not None:
+                    try:
+                        emoji = self.bot.get_emoji(self.game[game]["emoji"])
+                        description += f"{game}{emoji}\n"
+                    except:
+                        description += f"{game}\n"
+                else:
+                    description += f"{game}\n"
                 role = ctx.guild.get_role(self.game[game]["role"])
                 view.add_item(RoleButton(role, emoji))
             embed.description = description
