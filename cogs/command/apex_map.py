@@ -20,6 +20,7 @@ class apexMap(Cog_base):
         embed.add_field(name="當前地圖", value=r["currentMap"], inline=False)
         embed.add_field(name="時間", value=f"{r['startTime']} ~ {r['endTime']}", inline=False)
         embed.add_field(name="下一張地圖", value=r["nextMap"], inline=False)
+        embed.set_footer(text="Data from Apex Legends Status")
 
         await ctx.respond(embed=embed)
         return
