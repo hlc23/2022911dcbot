@@ -6,6 +6,7 @@
         "event.dvc",
         "event.role",
         "command.checker",
-        "command.game"
+        "command.game",
+        "command.apex_map"
     ]
 }
