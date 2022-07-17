@@ -19,4 +19,4 @@ def mapCheck(mode: str) -> dict:
     
     modeDict = {"battle_royale":"大逃殺", "arenas":"競技場", "ranked":"大逃殺(積分)", "arenasRanked":"競技場(積分)", "control":"控制"}
 
-    return {"mode":modeDict[mode], "currentMap":data[mode]["current"]["map"], "startTime":f"{start_time.hour}:{start_time.minute:0<2}", "endTime":f"{end_time.hour:0<2}:{end_time.minute:0<2}", "nextMap":data[mode]["next"]["map"]}
+    return {"mode":modeDict[mode], "currentMap":data[mode]["current"]["map"], "startTime":f"{start_time.hour:0>2}:{start_time.minute:0>2}", "endTime":f"{end_time.hour:0>2}:{end_time.minute:0>2}", "nextMap":data[mode]["next"]["map"]}
