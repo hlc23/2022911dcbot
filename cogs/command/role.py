@@ -25,12 +25,14 @@ class ButtonRoleCog(Cog_base):
                     try:
                         emoji = self.bot.get_emoji(self.game[game]["emoji"])
                         description += f"{game}{emoji}\n"
+                        role = ctx.guild.get_role(self.game[game]["role"])
+                        view.add_item(RoleButton(role, emoji))
                     except:
                         description += f"{game}\n"
                 else:
                     description += f"{game}\n"
-                role = ctx.guild.get_role(self.game[game]["role"])
-                view.add_item(RoleButton(role, emoji))
+                    role = ctx.guild.get_role(self.game[game]["role"])
+                    view.add_item(RoleButton(role))
             embed.description = description
             embed.set_footer(text='出現"此交互失敗"請直接忽略')
             channel = self.bot.get_channel(self.config["get_role_channel"])
