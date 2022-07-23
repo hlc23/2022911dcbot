@@ -1,5 +1,6 @@
 import discord
 import json
+from typing import Union
 
 class Cog_base(discord.Cog):
     
@@ -14,16 +15,23 @@ class Cog_base(discord.Cog):
         self.guild_id = self.config["guild_id"]
 
 class RoleButton(discord.ui.Button):
-    def __init__(self, role: discord.Role, emoji= discord.Emoji):
+    def __init__(self, role: discord.Role, emoji: discord.Emoji = None):
         """
         A button for one role. `custom_id` is needed for persistent views.
         """
-        super().__init__(
-            label=role.name,
-            style=discord.enums.ButtonStyle.primary,
-            custom_id=str(role.id),
-            emoji=emoji
-        )
+        if emoji:
+            super().__init__(
+                label=role.name,
+                style=discord.enums.ButtonStyle.primary,
+                custom_id=str(role.id),
+                emoji=emoji
+            )
+        else:
+            super().__init__(
+                label=role.name,
+                style=discord.enums.ButtonStyle.primary,
+                custom_id=str(role.id)
+            )
 
     async def callback(self, interaction: discord.Interaction):
         """This function will be called any time a user clicks on this button.

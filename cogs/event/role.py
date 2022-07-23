@@ -16,8 +16,9 @@ class Role(Cog_base):
         for game in self.game.keys():
             role_id = self.game[game]["role"]
             role = guild.get_role(role_id)
-            emoji = self.bot.get_emoji(self.game[game]["emoji"])
+            emoji = self.bot.get_emoji(self.game[game].get("emoji"))
             view.add_item(RoleButton(role, emoji))
+            del emoji
 
         # Add the view to the bot so it will watch for button interactions.
         self.bot.add_view(view)
