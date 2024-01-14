@@ -2,21 +2,13 @@ import discord
 from discord.ext import commands
 import os
 from dotenv import load_dotenv
-from keep_alive import keep_alive
-import json
+from lib import load_config, get_cogs
 
-def load_config():
-    with open("./data/config.json", mode="r", encoding="utf-8") as config_file:
-        global config
-        config = json.load(config_file)
-def get_cogs():
-    with open("./data/cogs.json", mode="r", encoding="utf-8") as cogs_file:
-        global cogs
-        cogs = json.load(cogs_file)["cogs"]
 
 load_dotenv()
-load_config()
-get_cogs()
+TOKEN = os.getenv("TOKEN")
+config = load_config()
+cogs = get_cogs()
 bot = discord.Bot(debug_guilds=[985045688377282581], intents=discord.Intents.all())
 
 @bot.event
@@ -46,8 +38,7 @@ async def reload(ctx:discord.ApplicationContext):
 for cog in cogs:
     bot.load_extension(f"cogs.{cog}")
 
-keep_alive()
 try:
-    bot.run(os.getenv('TOKEN'))
+    bot.run(TOKEN)
 except:
     os.system("kill 1")
