@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from lib import load_config, get_cogs
 
 
-
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 config = load_config()
