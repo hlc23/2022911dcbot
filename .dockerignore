@@ -1,2 +1,5 @@
 .venv
-.env
+.github/
+.gitignore
+README.md
+Dockerfile
