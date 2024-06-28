@@ -46,6 +46,17 @@ async def unload(ctx:discord.ApplicationContext, cog: discord.Option(str, descri
         await ctx.respond("Unload complete", ephemeral=True)
     return
 
+@bot.slash_command(name = "load", description = "Load cog")
+@commands.has_any_role(config["admin"])
+async def load(ctx:discord.ApplicationContext, cog: discord.Option(str, description="Cog name")):
+    try:
+        bot.load_extension(f"cogs.{cog}")
+    except:
+        await ctx.respond("Error", ephemeral=True)
+    else:
+        await ctx.respond("Load complete", ephemeral=True)
+    return
+
 for cog in cogs:
     bot.load_extension(f"cogs.{cog}")
 
