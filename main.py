@@ -35,6 +35,17 @@ async def reload(ctx:discord.ApplicationContext):
         await ctx.respond("Reload complete")
     return
 
+@bot.slash_command(name = "unload", description = "Unload cog")
+@commands.has_any_role(config["admin"])
+async def unload(ctx:discord.ApplicationContext, cog: discord.Option(str, description="Cog name")):
+    try:
+        bot.unload_extension(f"cogs.{cog}")
+    except:
+        await ctx.respond("Error", ephemeral=True)
+    else:
+        await ctx.respond("Unload complete", ephemeral=True)
+    return
+
 for cog in cogs:
     bot.load_extension(f"cogs.{cog}")
 
