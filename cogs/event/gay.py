@@ -9,6 +9,12 @@ class GayCog(Cog_base):
             await after.edit(nick="南同")
         return
 
+    @discord.Cog.listener()
+    async def on_ready(self):
+        if gay := self.bot.get_guild(417215201423917078).get_member(417215201423917078):
+            if gay.nick != "南同":
+                await gay.edit(nick="南同")
+
 
 def setup(bot):
     bot.add_cog(GayCog(bot))
