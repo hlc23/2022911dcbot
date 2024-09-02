@@ -57,6 +57,10 @@ async def load(ctx:discord.ApplicationContext, cog: discord.Option(str, descript
         await ctx.respond("Load complete", ephemeral=True)
     return
 
+@bot.listen()
+async def on_slash_command_error(ctx, error):
+    await bot.owner.send(f"Error: {error}")
+
 for cog in cogs:
     bot.load_extension(f"cogs.{cog}")
 
