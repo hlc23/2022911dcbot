@@ -11,3 +11,6 @@ class Interaction(Cog_base):
     @Cog_base.command(name="dice", aliases=["roll"])
     async def dice(self, ctx: discord.ApplicationContext, sides: int = 6):
         await ctx.respond(f"{randint(1, sides)}")
+
+def setup(bot: discord.Bot):
+    bot.add_cog(Interaction(bot))
