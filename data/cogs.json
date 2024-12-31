@@ -8,6 +8,7 @@
         "command.checker",
         "command.game",
         "command.apex_map",
-        "event.gay"
+        "event.gay",
+        "command.interaction"
     ]
 }
